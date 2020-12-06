@@ -54,21 +54,20 @@ function buildEmpire(){
         choices: ["Intern", "Engineer", "EMPIRE COMPLETE!"]
       }
     ]).then(response => {
-        switch(response.choices){
+        switch(response.choice){
             case "Intern": 
             createIntern();
             break
             case "Engineer":
             createEngineer();
             break
-            case "EMPIRE COMPLETE!":
+            default:
             createEmpire();
         }
     })
 }
 function createIntern(){
-    inquirer
-      .prompt([
+    inquirer.prompt([
         {
           type: "input",
           name: "name",
@@ -102,8 +101,7 @@ function createIntern(){
       });
 }
 function createEngineer() {
-  inquirer
-    .prompt([
+  inquirer.prompt([
       {
         type: "input",
         name: "name",
