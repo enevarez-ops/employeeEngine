@@ -10,7 +10,50 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+function runApp(){
+//create manager - trigger call urn app outside of the run app calling manager,employee,engineer,inter function
 
+function createManager() {
+    console.log("Create your Empires' Manager");
+    inquirer.prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Who is the leader of this Empire?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is the Leaders ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is the Leaders email?",
+      },
+      {
+        type: "input",
+        name: "officeNumber",
+        message: "What is the Leaders Office Number?",
+      },
+    ]);
+}
+
+//function for team build, switch statement
+
+//generateHtml function 
+
+
+
+
+
+
+
+
+
+};
+
+runApp();
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
