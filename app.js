@@ -10,6 +10,9 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const newEmpireList = [];
+
+
 function runApp(){
 //create manager - trigger call urn app outside of the run app calling manager,employee,engineer,inter function
 
@@ -36,8 +39,13 @@ function createManager() {
         name: "officeNumber",
         message: "What is the Leaders Office Number?",
       },
-    ]);
+    ]).then(response => {
+        const newManager = new Manager(response.name, response.id, response.email, response.officeNumber);
+        newEmpireList.push(newManager);
+        buildEmpire();
+    })
 }
+createManager();
 
 //function for team build, switch statement
 
