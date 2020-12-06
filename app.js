@@ -45,20 +45,106 @@ function createManager() {
         buildEmpire();
     })
 }
+function buildEmpire(){
+ inquirer.prompt([
+      {
+        type: "list",
+        name: "choice",
+        message: "Do you want to add someone to this Empire?",
+        choices: ["Intern", "Engineer", "EMPIRE COMPLETE!"]
+      }
+    ]).then(response => {
+        switch(response.choices){
+            case "Intern": 
+            createIntern();
+            break
+            case "Engineer":
+            createEngineer();
+            break
+            case "EMPIRE COMPLETE!":
+            createEmpire();
+        }
+    })
+}
+function createIntern(){
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "Who is the Intern for this Empire?",
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "What is the Intern's ID?",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "What is the Interns email?",
+        },
+        {
+          type: "input",
+          name: "school",
+          message: "What is the name of the Intern's School?",
+        },
+      ])
+      .then((response) => {
+        const newIntern = new Intern(
+          response.name,
+          response.id,
+          response.email,
+          response.school
+        );
+        newEmpireList.push(newIntern);
+        buildEmpire();
+      });
+}
+function createEngineer() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Who is the Engineer for this Empire?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is the Engineer's ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is the Engineer's email?",
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What is this Engineer's GitHub?",
+      },
+    ])
+    .then((response) => {
+      const newEngineer = new Engineer(
+        response.name,
+        response.id,
+        response.email,
+        response.github
+      );
+      newEmpireList.push(newEngineer);
+      buildEmpire();
+    });
+}
+
+
+
+
+
+
+
+
 createManager();
-
-//function for team build, switch statement
-
-//generateHtml function 
-
-
-
-
-
-
-
-
-
 };
 
 runApp();
