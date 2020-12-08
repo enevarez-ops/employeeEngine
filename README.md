@@ -12,7 +12,7 @@
  
 ## Deployed site
 [Empire Generator](https://enevarez-ops.github.io/employeeEngine/)
-![gif for site](gif-link)
+![Employee Engine](appRun.gif)
  
 ## User Story
 This site will be used to generate a template of a company team.
